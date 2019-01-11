@@ -46,7 +46,14 @@ class SingleProject extends Component {
                   marginBottom: "20px"
                 }}
               >
-                <h3>Actions:</h3>
+                <h3
+                  style={{
+                    borderBottom: "1px dashed black",
+                    paddingBottom: "10px"
+                  }}
+                >
+                  Actions:
+                </h3>
                 <p>Action Description: {action.description}</p>
                 <p>Action Notes: {action.notes}</p>
               </div>

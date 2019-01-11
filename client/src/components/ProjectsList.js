@@ -15,7 +15,9 @@ function ProjectsList({
         marginBottom: "20px"
       }}
     >
-      <h2>{name}</h2>
+      <h2 style={{ paddingBottom: "10px", borderBottom: "1px dashed black" }}>
+        {name}
+      </h2>
       <p style={{ textDecoration: completed ? "line-through" : "none" }}>
         {description}
       </p>
