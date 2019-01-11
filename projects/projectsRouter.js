@@ -82,7 +82,9 @@ router.put("/:projectId", (req, res) => {
   const changedProject = req.body;
 
   if (!changedProject.name || !changedProject.description) {
-    res.status(400).json({ message: "please provide name and description" });
+    return res
+      .status(400)
+      .json({ message: "please provide name and description" });
   }
   projectsDb
     .update(projectId, changedProject)
