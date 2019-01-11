@@ -43,7 +43,6 @@ router.post("/:project_id", (req, res) => {
     .get(project_id)
     .then(project => {
       if (project) {
-        // res.status(200).json(project);
         if (!newAction.description || !newAction.notes) {
           return res.status(400).json({
             message:
@@ -72,27 +71,6 @@ router.post("/:project_id", (req, res) => {
       res.status(500).json({ error: "the project info could not be retrieved" })
     );
 });
-
-// if (!newAction.description || !newAction.notes) {
-//   return res.status(400).json({
-//     message:
-//       "Please provide a description and notes...completed is optional param"
-//   });
-// }
-
-// actionsDb
-//   .insert({ project_id, ...newAction })
-//   .then(action => {
-//     console.log(res);
-
-//     res.status(201).json(action);
-//   })
-//   .catch(err =>
-//     res
-//       .status(500)
-//       .json({ error: "there was an error while saving your action" })
-//   );
-// });
 
 // Edit a Action
 router.put("/:actionId", (req, res) => {
