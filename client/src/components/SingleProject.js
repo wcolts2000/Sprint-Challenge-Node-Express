@@ -1,8 +1,21 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import styled from "styled-components";
+import ActionsCard from "./ActionsCard";
+import { URL } from "./constants.js";
 
-const URL = "http://localhost:8081/api/";
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+`;
+
+const H1 = styled.h1`
+  text-decoration: ${props => (props.completed ? "line-through" : "none")};
+`;
 
 class SingleProject extends Component {
   state = { project: [] };
@@ -17,49 +30,15 @@ class SingleProject extends Component {
 
   render() {
     if (this.state.project.length) {
-      const {
-        name,
-        id,
-        completed,
-        description,
-        actions
-      } = this.state.project[0];
+      const { name, completed, description, actions } = this.state.project[0];
       return (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
-            maxWidth: "800px",
-            margin: "0 auto"
-          }}
-        >
-          <h1>Project Name: {name}</h1>
+        <Div>
+          <H1 completed={completed}>Project Name: {name}</H1>
           <p>Projects Description: {description}</p>
-          {actions.map(action => {
-            return (
-              <div
-                key={action.id}
-                style={{
-                  border: "1px solid black",
-                  padding: "10px",
-                  marginBottom: "20px"
-                }}
-              >
-                <h3
-                  style={{
-                    borderBottom: "1px dashed black",
-                    paddingBottom: "10px"
-                  }}
-                >
-                  Actions:
-                </h3>
-                <p>Action Description: {action.description}</p>
-                <p>Action Notes: {action.notes}</p>
-              </div>
-            );
-          })}
-        </div>
+          {actions.map(action => (
+            <ActionsCard key={action.id} action={action} />
+          ))}
+        </Div>
       );
     } else {
       return <div>Loading Project...</div>;

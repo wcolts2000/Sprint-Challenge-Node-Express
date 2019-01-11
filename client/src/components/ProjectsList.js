@@ -1,27 +1,32 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import styled from "styled-components";
+
+const Div = styled.div`
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 20px;
+`;
+
+const H2 = styled.h2`
+  padding-bottom: 10px;
+  border-bottom: 1px dashed black;
+`;
+
+const P = styled.p`
+  text-decoration: ${props => (props.completed ? "line-through" : "none")};
+`;
 
 function ProjectsList({
   project: { name, description, completed, id },
   history
 }) {
   return (
-    <div
-      onClick={() => history.push(`/projects/${id}`)}
-      style={{
-        cursor: "pointer",
-        border: "1px solid black",
-        padding: "10px",
-        marginBottom: "20px"
-      }}
-    >
-      <h2 style={{ paddingBottom: "10px", borderBottom: "1px dashed black" }}>
-        {name}
-      </h2>
-      <p style={{ textDecoration: completed ? "line-through" : "none" }}>
-        {description}
-      </p>
-    </div>
+    <Div onClick={() => history.push(`/projects/${id}`)}>
+      <H2>{name}</H2>
+      <P completed={completed}>{description}</P>
+    </Div>
   );
 }
 

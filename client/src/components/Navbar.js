@@ -1,32 +1,48 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
+import styled from "styled-components";
+
+const Nav = styled.nav`
+  display: flex;
+  padding: 2rem;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.6);
+`;
+
+const StyledLink = styled(Link)`
+  font-weight: bolder;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const StyledNavLink = styled(NavLink)`
+  margin-left: auto;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const Span = styled.span`
+  font-weight: lighter;
+  opacity: 0.8;
+`;
 
 function Navbar() {
   return (
-    <nav style={{ display: "flex", padding: "10px" }}>
-      <Link
-        to="/"
-        style={{
-          fontWeight: "bold",
-          textDecoration: "none",
-          color: "black",
-          cursor: "pointer"
-        }}
-      >
-        Getter<span style={{ fontWeight: "lighter", opacity: 0.8 }}>Dun</span>
-      </Link>
-      <NavLink
-        to="/"
-        style={{
-          marginLeft: "auto",
-          textDecoration: "none",
-          color: "black",
-          cursor: "pointer"
-        }}
-      >
-        Projects List
-      </NavLink>
-    </nav>
+    <Nav>
+      <StyledLink to="/">
+        Getter<Span>Dun</Span>
+      </StyledLink>
+      <StyledNavLink to="/">Projects List</StyledNavLink>
+    </Nav>
   );
 }
 
