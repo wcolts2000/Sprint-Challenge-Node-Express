@@ -41,7 +41,7 @@ function Navbar() {
       <StyledLink to="/">
         Getter<Span>Dun</Span>
       </StyledLink>
-      <StyledNavLink to="/">Projects List</StyledNavLink>
+      <StyledNavLink to="/">Projects</StyledNavLink>
     </Nav>
   );
 }
