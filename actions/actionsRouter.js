@@ -39,27 +39,60 @@ router.get("/", (req, res) => {
 router.post("/:project_id", (req, res) => {
   const { project_id } = req.params;
   const newAction = req.body;
+  projectsDb
+    .get(project_id)
+    .then(project => {
+      if (project) {
+        // res.status(200).json(project);
+        if (!newAction.description || !newAction.notes) {
+          return res.status(400).json({
+            message:
+              "Please provide a description and notes...completed is optional param"
+          });
+        }
+        actionsDb
+          .insert({ project_id, ...newAction })
+          .then(action => {
+            console.log(res);
 
-  if (!newAction.description || !newAction.notes) {
-    return res.status(400).json({
-      message:
-        "Please provide a description and notes...completed is optional param"
-    });
-  }
-
-  actionsDb
-    .insert({ project_id, ...newAction })
-    .then(action => {
-      console.log(res);
-
-      res.status(201).json(action);
+            res.status(201).json(action);
+          })
+          .catch(err => {
+            return res
+              .status(500)
+              .json({ error: "there was an error while saving your action" });
+          });
+      } else {
+        return res
+          .status(404)
+          .json({ message: "a project with that ID does not exist" });
+      }
     })
     .catch(err =>
-      res
-        .status(500)
-        .json({ error: "there was an error while saving your action" })
+      res.status(500).json({ error: "the project info could not be retrieved" })
     );
 });
+
+// if (!newAction.description || !newAction.notes) {
+//   return res.status(400).json({
+//     message:
+//       "Please provide a description and notes...completed is optional param"
+//   });
+// }
+
+// actionsDb
+//   .insert({ project_id, ...newAction })
+//   .then(action => {
+//     console.log(res);
+
+//     res.status(201).json(action);
+//   })
+//   .catch(err =>
+//     res
+//       .status(500)
+//       .json({ error: "there was an error while saving your action" })
+//   );
+// });
 
 // Edit a Action
 router.put("/:actionId", (req, res) => {
