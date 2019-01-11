@@ -60,12 +60,10 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   const newProject = req.body;
   if (!newProject.name || !newProject.description) {
-    res
-      .status(400)
-      .json({
-        message:
-          "Please provide a name and description...completed is optional param"
-      });
+    return res.status(400).json({
+      message:
+        "Please provide a name and description...completed is optional param"
+    });
   }
 
   projectsDb
@@ -75,6 +73,27 @@ router.post("/", (req, res) => {
       res
         .status(500)
         .json({ error: "there was an error while saving your project" })
+    );
+});
+
+// Edit a Project
+router.put("/:projectId", (req, res) => {
+  const { projectId } = req.params;
+  const changedProject = req.body;
+
+  if (!changedProject.name || !changedProject.description) {
+    res.status(400).json({ message: "please provide name and description" });
+  }
+  projectsDb
+    .update(projectId, changedProject)
+    .then(updatedProject => {
+      if (updatedProject === null) {
+        res.status(404).join({ message: "no project with that id exists" });
+      }
+      res.status(200).json(updatedProject);
+    })
+    .catch(err =>
+      res.status(500).json({ error: "there was an error updating the project" })
     );
 });
 
