@@ -25,14 +25,30 @@ class SingleProject extends Component {
         actions
       } = this.state.project[0];
       return (
-        <div>
-          <h1>{name}</h1>
-          <p>{description}</p>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+            maxWidth: "800px",
+            margin: "0 auto"
+          }}
+        >
+          <h1>Project Name: {name}</h1>
+          <p>Projects Description: {description}</p>
           {actions.map(action => {
             return (
-              <div key={action.id}>
-                <p>{action.description}</p>
-                <p>{action.notes}</p>
+              <div
+                key={action.id}
+                style={{
+                  border: "1px solid black",
+                  padding: "10px",
+                  marginBottom: "20px"
+                }}
+              >
+                <h3>Actions:</h3>
+                <p>Action Description: {action.description}</p>
+                <p>Action Notes: {action.notes}</p>
               </div>
             );
           })}

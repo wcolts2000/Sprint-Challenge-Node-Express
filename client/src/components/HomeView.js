@@ -18,7 +18,14 @@ export default class HomeView extends Component {
     const { projects } = this.state;
     if (projects.length) {
       return (
-        <div>
+        <div
+          style={{
+            padding: "20px",
+            width: "100%",
+            maxWidth: "800px",
+            margin: "0 auto"
+          }}
+        >
           {projects.map(project => (
             <ProjectsList key={project.id} project={project} />
           ))}

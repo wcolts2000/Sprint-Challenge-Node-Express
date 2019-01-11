@@ -8,9 +8,14 @@ function ProjectsList({
   return (
     <div
       onClick={() => history.push(`/projects/${id}`)}
-      style={{ cursor: "pointer" }}
+      style={{
+        cursor: "pointer",
+        border: "1px solid black",
+        padding: "10px",
+        marginBottom: "20px"
+      }}
     >
-      <p>{name}</p>
+      <h2>{name}</h2>
       <p style={{ textDecoration: completed ? "line-through" : "none" }}>
         {description}
       </p>
