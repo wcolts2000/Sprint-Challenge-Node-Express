@@ -26,13 +26,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+  - Express is a lightweight framework that sits on Node for the back end, like react is to the front end, giving more functionality and ease of use. Express is essentially just a collection of useful middleware packages and functions bundled for convenience.
+
 - [ ] Describe Middleware?
+
+  - Middleware is a package/function that can be builtin to the express library, brought in from a third party via npm/yarn or written by the developer (custom) that act as gatekeepers of the data we pass them requiring the data matches the predetermined criteria.
 
 - [ ] Describe a Resource?
 
+  - In RESTful architecture, everything is a resource. Resources should be accessed from unique URI/URLs and can have multiple representations.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+  -Depending on the type of request that is sent, varying responses can be given, but generally speaking, successful requests will be answered with a res.status(200) or (201) for example. An object or integer may also accompany this response.
+
 - [ ] How can we partition our application into sub-applications?
+
+  - There are a few different methodologies when it comes to compartmentalizing or breaking down your code into smaller, related pieces. with Express Router, breaking your files into smaller pieces using one of the methodologies becomes fairly easy. emaples of the methodologies would be breaking code up by features, another would be by functionality, or either combination of these.
 
 ## Project Setup
 
@@ -44,12 +54,12 @@ Follow these steps to set up and work on your project:
 - [ ] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
 - [ ] Implement the project on this Branch, committing changes regularly.
 - [ ] Push commits: git push origin `<firstName-lastName>`.
- 
+
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request.**
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo). **Please don't merge your own pull request.**
 - [ ] Add your Project Manager as a Reviewer on the Pull-request
-- [ ] PM then will count the HW as done by  merging the branch back into master.
+- [ ] PM then will count the HW as done by merging the branch back into master.
 
 ## Database Persistence Helpers
 
