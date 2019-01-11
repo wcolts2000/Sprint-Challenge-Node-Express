@@ -99,4 +99,25 @@ router.put("/:projectId", (req, res) => {
     );
 });
 
+// Delete Project
+router.delete("/:projectId", (req, res) => {
+  const { projectId } = req.params;
+  projectsDb
+    .remove(projectId)
+    .then(deletedNum => {
+      if (!deletedNum) {
+        res
+          .status(404)
+          .json({ message: "there was an error deleting project" });
+      } else {
+        res.status(200).json({ message: "Project deleted" });
+      }
+    })
+    .catch(err =>
+      res
+        .status(500)
+        .json({ message: "there was an error deleting the project" })
+    );
+});
+
 module.exports = router;
