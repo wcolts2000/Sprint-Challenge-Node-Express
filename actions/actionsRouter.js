@@ -55,3 +55,5 @@ router.get("/", (req, res) => {
         .json({ error: "the projects info could not be retrieved" })
     );
 });
+
+module.exports = router;

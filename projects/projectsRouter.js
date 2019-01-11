@@ -56,4 +56,26 @@ router.get("/", (req, res) => {
     );
 });
 
+//  Add a Project
+router.post("/", (req, res) => {
+  const newProject = req.body;
+  if (!newProject.name || !newProject.description) {
+    res
+      .status(400)
+      .json({
+        message:
+          "Please provide a name and description...completed is optional param"
+      });
+  }
+
+  projectsDb
+    .insert(newProject)
+    .then(project => res.status(201).json(project))
+    .catch(err =>
+      res
+        .status(500)
+        .json({ error: "there was an error while saving your project" })
+    );
+});
+
 module.exports = router;
