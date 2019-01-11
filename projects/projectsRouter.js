@@ -65,6 +65,11 @@ router.post("/", (req, res) => {
         "Please provide a name and description...completed is optional param"
     });
   }
+  if (newProject.name.length > 128) {
+    return res
+      .status(400)
+      .json({ message: "name can not be over 128 characters" });
+  }
 
   projectsDb
     .insert(newProject)
@@ -85,6 +90,11 @@ router.put("/:projectId", (req, res) => {
     return res
       .status(400)
       .json({ message: "please provide name and description" });
+  }
+  if (changedProject.name.length > 128) {
+    return res
+      .status(400)
+      .json({ message: "name can not be over 128 characters" });
   }
   projectsDb
     .update(projectId, changedProject)
