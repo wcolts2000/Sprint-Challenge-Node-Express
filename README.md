@@ -42,7 +42,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ x ] How can we partition our application into sub-applications?
 
-  - There are a few different methodologies when it comes to compartmentalizing or breaking down your code into smaller, related pieces. with Express Router, breaking your files into smaller pieces using one of the methodologies becomes fairly easy. emaples of the methodologies would be breaking code up by features, another would be by functionality, or either combination of these.
+  - There are a few different methodologies when it comes to compartmentalizing or breaking down your code into smaller, related pieces. with Express Router, breaking your files into smaller pieces using one of the methodologies becomes fairly easy. examples of the methodologies would be breaking code up by features, another would be by functionality, or either combination of these.
 
 ## Project Setup
 

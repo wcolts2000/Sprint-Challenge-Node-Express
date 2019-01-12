@@ -36,8 +36,8 @@ class App extends Component {
     return (
       <>
         <Div>
-          <Nav />
           <GlobalStyle />
+          <Nav />
           <Spacer />
           <Route exact path="/" component={HomeView} />
           <Route exact path="/projects" component={ProjectsList} />
