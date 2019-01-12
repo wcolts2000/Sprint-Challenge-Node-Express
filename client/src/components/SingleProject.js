@@ -21,10 +21,27 @@ class SingleProject extends Component {
   state = { project: [] };
 
   componentDidMount = () => {
+    this.fetchProject();
+  };
+
+  // componentDidUpdate = (prevProps, prevState) => {
+  //   if(prevState.)
+  // }
+
+  fetchProject = () => {
     const id = this.props.match.params.projectId;
     axios
       .get(`${URL}projects/${id}`)
       .then(({ data }) => this.setState({ project: [data] }))
+      .catch(err => console.log(err));
+  };
+
+  deleteAction = id => {
+    axios
+      .delete(`${URL}actions/${id}`)
+      .then(({ data }) => {
+        this.fetchProject();
+      })
       .catch(err => console.log(err));
   };
 
@@ -35,8 +52,13 @@ class SingleProject extends Component {
         <Div>
           <H1 completed={completed}>Project Name: {name}</H1>
           <p>Projects Description: {description}</p>
-          {actions.map(action => (
-            <ActionsCard key={action.id} action={action} />
+          {actions.map((action, _, arr) => (
+            <ActionsCard
+              key={action.id}
+              numberLeft={arr.length}
+              action={action}
+              deleteAction={this.deleteAction}
+            />
           ))}
         </Div>
       );

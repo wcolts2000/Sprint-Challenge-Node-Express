@@ -17,20 +17,28 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
     font-size: 62.5%;
+    width: 100vw;
   }
 `;
 
 const Div = styled.div`
   font-size: 1.2rem;
+  /* width: 100%; */
+`;
+
+const Spacer = styled.div`
+  width: 100%;
+  height: 90px;
 `;
 
 class App extends Component {
   render() {
     return (
       <>
-        <GlobalStyle />
         <Div>
           <Nav />
+          <GlobalStyle />
+          <Spacer />
           <Route exact path="/" component={HomeView} />
           <Route exact path="/projects" component={ProjectsList} />
           <Route path="/projects/:projectId" component={SingleProject} />

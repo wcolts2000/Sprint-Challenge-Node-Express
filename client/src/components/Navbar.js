@@ -2,6 +2,13 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import styled from "styled-components";
 
+const NavBox = styled.div`
+  width: 100vw;
+  position: fixed;
+  background: white;
+  z-index: 1000;
+`;
+
 const Nav = styled.nav`
   display: flex;
   padding: 2rem;
@@ -37,12 +44,14 @@ const Span = styled.span`
 
 function Navbar() {
   return (
-    <Nav>
-      <StyledLink to="/">
-        Getter<Span>Dun</Span>
-      </StyledLink>
-      <StyledNavLink to="/">Projects</StyledNavLink>
-    </Nav>
+    <NavBox>
+      <Nav>
+        <StyledLink to="/">
+          Getter<Span>Dun</Span>
+        </StyledLink>
+        <StyledNavLink to="/">Projects</StyledNavLink>
+      </Nav>
+    </NavBox>
   );
 }
 
