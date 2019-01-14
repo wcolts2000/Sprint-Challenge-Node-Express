@@ -24,32 +24,42 @@ In this challenge, create a web API around the following resources: `Projects` a
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Mention two parts of Express that you learned about this week.
+- [ x ] Mention two parts of Express that you learned about this week.
 
-- [ ] Describe Middleware?
+  - Express is a lightweight framework that sits on Node for the back end, like react is to the front end, giving more functionality and ease of use. Express is essentially just a collection of useful middleware packages and functions bundled for convenience.
 
-- [ ] Describe a Resource?
+- [ x ] Describe Middleware?
 
-- [ ] What can the API return to help clients know if a request was successful?
+  - Middleware is a package/function that can be builtin to the express library, brought in from a third party via npm/yarn or written by the developer (custom) that act as gatekeepers of the data we pass them requiring the data matches the predetermined criteria.
 
-- [ ] How can we partition our application into sub-applications?
+- [ x ] Describe a Resource?
+
+  - In RESTful architecture, everything is a resource. Resources should be accessed from unique URI/URLs and can have multiple representations.
+
+- [ x ] What can the API return to help clients know if a request was successful?
+
+  -Depending on the type of request that is sent, varying responses can be given, but generally speaking, successful requests will be answered with a res.status(200) or (201) for example. An object or integer may also accompany this response.
+
+- [ x ] How can we partition our application into sub-applications?
+
+  - There are a few different methodologies when it comes to compartmentalizing or breaking down your code into smaller, related pieces. with Express Router, breaking your files into smaller pieces using one of the methodologies becomes fairly easy. examples of the methodologies would be breaking code up by features, another would be by functionality, or either combination of these.
 
 ## Project Setup
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add PM as collaborator on Github.
-- [ ] Clone your OWN version of Repo (Not Lambda's by mistake!).
-- [ ] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on this Branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
- 
+- [ x ] Create a forked copy of this project.
+- [ x ] Add PM as collaborator on Github.
+- [ x ] Clone your OWN version of Repo (Not Lambda's by mistake!).
+- [ x ] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
+- [ x ] Implement the project on this Branch, committing changes regularly.
+- [ x ] Push commits: git push origin `<firstName-lastName>`.
+
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request.**
-- [ ] Add your Project Manager as a Reviewer on the Pull-request
-- [ ] PM then will count the HW as done by  merging the branch back into master.
+- [ x ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo). **Please don't merge your own pull request.**
+- [ x ] Add your Project Manager as a Reviewer on the Pull-request
+- [ x ] PM then will count the HW as done by merging the branch back into master.
 
 ## Database Persistence Helpers
 
@@ -69,14 +79,14 @@ The `projectModel.js` helper includes an extra method called `getProjectActions(
 
 ## Minimum Viable Product
 
-- [ ] Take the steps necessary to create a `package.json` to keep a record of all dependencies.
-- [ ] Use _yarn_ to add **knex** and **sqlite3** as dependencies to the project. **This is required for database access**.
-- [ ] Configure an _npm script_ named _"start"_ that will execute your code using _nodemon_ so that the **server restarts on changes**. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
+- [ x ] Take the steps necessary to create a `package.json` to keep a record of all dependencies.
+- [ x ] Use _yarn_ to add **knex** and **sqlite3** as dependencies to the project. **This is required for database access**.
+- [ x ] Configure an _npm script_ named _"start"_ that will execute your code using _nodemon_ so that the **server restarts on changes**. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
 
 Design and build the necessary endpoints to:
 
-- [ ] Perform CRUD operations on _projects_ and _actions_.
-- [ ] Retrieve the list of actions for a project.
+- [ x ] Perform CRUD operations on _projects_ and _actions_.
+- [ x ] Retrieve the list of actions for a project.
 
 ## Database Schemas
 
@@ -103,7 +113,7 @@ Now that we have a way to add, update, remove and retrieve data from the provide
 
 ## Stretch Goal
 
-- Use `create-react-app` to create an application in a separate folder (outside the API project folder). Name it anything you want.
-- From the React application show a list of all _projects_ using the API you built.
-- Add functionality to show the details of a project, including its actions, when clicking a project name in the list. Use React Router to navigate to a separate route to show the project details.
-- Add styling! Perhaps with [`styled-components`](https://www.styled-components.com/).
+[ x ] - Use `create-react-app` to create an application in a separate folder (outside the API project folder). Name it anything you want.
+[ x ] - From the React application show a list of all _projects_ using the API you built.
+[ x ] - Add functionality to show the details of a project, including its actions, when clicking a project name in the list. Use React Router to navigate to a separate route to show the project details.
+[ x ] - Add styling! Perhaps with [`styled-components`](https://www.styled-components.com/).
